@@ -64,7 +64,7 @@ def load_images(path, height = 320, width = 243):
             im = Image.open(os.path.join(path, filename)).\
                 resize((height, width), Image.ANTIALIAS).convert("L")
             ims.append(np.asarray(im, dtype=np.uint8))
-            labels.append(filename[7:9])
+            labels.append(filename[7:9]) # 文件名的7到9位是标签
         except:
             continue
-    return ims, labels
+    return ims, labels, files
