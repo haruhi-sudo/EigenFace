@@ -2,13 +2,14 @@ import numpy as np
 import PIL.Image as Image
 import os
 
-def centralization(images, d=320*243):
+def centralization(images, height = 320, width = 243):
     '''
         images是图片集合（矩阵集合）
         d是图片拉伸后的维度
         输出中心化后的矩阵central_vectors和平均值
     '''
     n = len(images) # n是图片个数
+    d = height * width
     central_vectors = np.zeros([d, n])
     for i in range(n):
         images[i] = images[i].flatten()
@@ -54,6 +55,9 @@ def PCA(W):
 def reconstrcut(eigenvectors, X):
     return np.dot(np.dot(X, eigenvectors), eigenvectors.T) 
 
+# 投影到特征空间
+def project(eigenvectors, X):
+    return np.dot(X, eigenvectors)
 
 def load_images(path, height = 320, width = 243):
     files = os.listdir(path)
