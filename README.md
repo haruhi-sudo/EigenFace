@@ -1,4 +1,4 @@
-# Python实现的EigenFace识别人脸程序(两种方式)
+# Python实现的EigenFace识别人脸程序(两种方式) TJU LYJ
 
 Python版本：3.8，依赖库：numpy
 
